@@ -2,65 +2,56 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
+
 // TODO: Create an array of questions for user input
 const questions = [
-    if (title === '') {
-        return 'Please enter a title for your project.';
-    } else {
-        return '';
-    }
-    if (description === '') {
-        return 'Please enter a description for your project.';
-    } else {
-        return '';
-    }
-    if (tableOfContents === '') {
-        return 'Please enter a table of contents for your project.';
-    } else {
-        return '';
-    }
-    if (installation === '') {
-        return 'Please enter installation instructions for your project.';
-    } else {
-        return '';
-    }
-    if (usage === '') {
-        return 'Please enter usage information for your project.';
-    } else {
-        return '';
-    }
-    if (license === '') {
-        return 'Please enter a license for your project.';
-    } else {
-        return '';
-    }
-    if (contributing === '') {
-        return 'Please enter contributing guidelines for your project.';
-    } else {
-        return '';
-    }
-    if (tests === '') {
-        return 'Please enter test instructions for your project.';
-    } else {
-        return '';
-    }
-    if (questions === '') {
-        return 'Please enter questions for your project.';
-    } else {
-        return '';
-    }
-    if (username === '') {
-        return 'Please enter your GitHub username.';
-    } else {
-        return '';
-    }
-    if (email === '') {
-        return 'Please enter your email address.';
-    } else {
-        return '';
-    }
-
-];
+    {
+        type: 'input',
+        name: 'title',
+        message: 'What is the title of your project?',
+      },
+      {
+        type: 'input',
+        name: 'description',
+        message: 'Provide a short description of your project:',
+      },
+      {
+        type: 'input',
+        name: 'installation',
+        message: 'What are the steps required to install your project?',
+      },
+      {
+        type: 'input',
+        name: 'usage',
+        message: 'Provide instructions and examples for use:',
+      },
+      {
+        type: 'list',
+        name: 'license',
+        message: 'Choose a license for your project:',
+        choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3-Clause', 'None'],
+      },
+      {
+        type: 'input',
+        name: 'contributing',
+        message: 'How can others contribute to your project?',
+      },
+      {
+        type: 'input',
+        name: 'tests',
+        message: 'Provide examples on how to run tests for your project:',
+      },
+      {
+        type: 'input',
+        name: 'github',
+        message: 'What is your GitHub username?',
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?',
+      }
+    ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -87,15 +78,17 @@ function init() {
 
 // Function call to initialize app
 init(
-    const generateMarkdown = require('./utils/generateMarkdown');
-    const fs = require('fs');
-    const inquirer = require('inquirer');
-    const questions = require('./utils/questions');
-    const writeToFile = require('./utils/writeToFile');
-    const init = require('./utils/init');
-    const renderLicenseBadge = require('./utils/renderLicenseBadge');
-    const renderLicenseLink = require('./utils/renderLicenseLink');
-    const renderLicenseSection = require('./utils/renderLicenseSection');
-    const generateMarkdown = require('./utils/generateMarkdown');
+    function init() {
+      inquirer.prompt(questions)
+        .then((answers) => {
+          const markdown = generateMarkdown(answers);
+          writeToFile('README.md', markdown);
+          console.log('README.md has been successfully generated!');
+        })
+        .catch((error) => {
+          console.error('An error occurred:', error);
+        });
+    }
+    );
 
-);
+
