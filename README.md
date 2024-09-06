@@ -1,20 +1,20 @@
-# Module 7 Challenge
+# Professional README Generator
   ## Description
-  it writes a README
+  This is a command-line application that dynamically generates a professional README.md file from user inputs.
   ## Table of Contents
   undefined
   ## Installation
-  vscode
+  Node.js must be installed and Inquirer package is used. This also means that Visual Studio Code is on the user computer.
   ## Usage
-  sure thing
+  Using the command-line the user must run "install npm inquirer" to use the package. This is after downloading my Github repository and opening it using VS Code.
   ## License
   $(renderLicenseBadge)
   $(renderLicenseLink)
   $(renderLicenseSection)
   ## Contributing
-  email me
+  Anyone can create a new branch from the repository and further developing.
   ## Tests
-  screencastify
+  Using the Terminal to use a command-line the user enters "node index.js" when the project directory and file is open.
   ## Questions
   undefined
   ## GitHub Username
